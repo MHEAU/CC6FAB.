@@ -1,0 +1,158 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" sizes="any" href="{% static 'img/icon4.png' %}" type="image/png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Thesis App</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <!-- CSS Files -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/light-bootstrap-dashboard.css' %} " rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="{% static 'css/demo.css' %}" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body style="background-color: #003049;">
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.5);">
+        <div class="wrapper">
+            <div class="sidebar" data-color="blue" data-image="{% static 'img/sidebar-7.jpg' %}" style="width: 200px;">
+
+                <div class="sidebar-wrapper" style="width: 200px;">
+                    {% include 'includes/sidebar.html' %}
+                </div>
+            </div>
+            <div class="main-panel" style="margin-right: 0px; width: 1050px;">
+                <!-- Navbar -->
+                {% include 'includes/navbar.html' %}
+                <!-- End Navbar -->
+                <div class="content">
+                    <div class="container-fluid">
+                            <div class="col-md-9">
+                                <section class="hero">
+                                        <h1>Discover and Share Academic Theses</h1>
+                                        <p>Find valuable research papers and share your own work with the academic community.</p>
+                                        <a href="/thesis" style="background-color: #003049; border: #003049 2px; color: white;" class="btn btn-primary">Explore Theses</a>
+                                        <a href="/thesis/add" style="background-color: #f77f00; border: #f77f00 2px; color: white;" class="btn btn-secondary">Add Your Thesis</a>
+                                    </div>
+                                </section>
+                                <br>
+                                <hr class="rounded" style="border: solid lightgrey 2px;">                 
+                        <section class="featured-thesis">
+                            <div class="container">
+                                <h2>Featured Thesis</h2>
+                                <div class="thesis-item">
+                                    <h3>{{ random_thesis.title }}</h3>
+                                    <p>by {{ random_thesis.authors }}</p>
+                                    <p>{{ random_thesis.abstract }}</p>
+                                    <a href="{% url 'Thesisapp_comments' random_thesis.callno %}" style="border: solid #003049 2px; color: #003049; padding: 5px;" class="btn btn-secondary">See Comments</a>
+                                </div>
+                            </div>
+                        </section>
+                        <br>
+                        <hr class="rounded" style="border: solid lightgrey 2px;">
+                    </div>       
+                    <footer class="footer" style="margin-left: 5px;">
+                <div class="container-fluid">
+                    <nav>
+                        <ul class="footer-menu">
+                            <li>
+                                <a href="home.php">
+                                    Home
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://psulibrary.palawan.edu.ph/home/">
+                                    Company
+                                </a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Developers<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                <li><a href="https://github.com/MHEAU/">Meah Fabrigas</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="">
+                                    Blog
+                                </a>
+                            </li>
+                        </ul>
+                        <p class="copyright text-center">
+                            ©
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script>
+                            <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+                        </p>
+                    </nav>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+<script src="{% static 'js/core/jquery.3.2.1.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/core/popper.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/core/bootstrap.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/plugins/bootstrap-switch.js' %}"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+<script src="{% static 'js/plugins/chartist.min.js' %}"></script>
+<script src="{% static 'js/plugins/bootstrap-notify.js' %}"></script>
+<script src="{% static 'js/light-bootstrap-dashboard.js?v=2.0.0' %}" type="text/javascript"></script>
+<script src="{% static 'js/demo.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<style>
+#mycollegeChartTopFive {
+  width: 400px;
+  height: 400px;
+}
+</style>
+
+<script>
+const start = new Date();
+// update the time every second
+setInterval(() => {
+  const now = new Date();
+  const elapsed = Math.floor((now - start) / 1000);
+  
+  // get the weekday name from the current date
+  const weekdayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  const weekdayIndex = now.getDay();
+  const weekdayName = weekdayNames[weekdayIndex];
+  
+  // get the month name, day, and year from the current date
+  const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  const monthIndex = now.getMonth();
+  const monthName = monthNames[monthIndex];
+  const day = now.getDate();
+  const year = now.getFullYear();
+  
+  // format the time string
+  let hours = now.getHours();
+  const minutes = now.getMinutes().toString().padStart(2, "0");
+  const seconds = now.getSeconds().toString().padStart(2, "0");
+  const ampm = hours >= 12 ? "pm" : "am";
+  hours %= 12;
+  hours = hours ? hours : 12; // convert 0 to 12
+  
+  const timeString = hours + ":" + minutes + ":" + seconds + " " + ampm;
+  
+  // construct the final date string
+  const dateString = weekdayName + ", " + monthName + " " + day + ", " + year;
+  document.getElementById("clock").innerHTML = dateString + " " + timeString;
+}, 1000);
+
+    </script>
+
+
+
+</html>

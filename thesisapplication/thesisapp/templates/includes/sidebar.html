@@ -1,0 +1,21 @@
+{% load static %}
+<div class="logo" style="padding: 1px;">
+    <a href="{% url 'Home' %}" class="simple-text">
+      <img src="{% static 'img/logo1.png' %}" alt="logo" width="100" height="100" style="margin-left: -10px; margin-top: 10px;">
+      <h3 style="margin-left: -14px; margin-top: -1px; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"> Thesis App </h3>
+    </a>
+</div>
+<ul class="nav">
+<li class="nav-item active">
+        <a class="nav-link" href="{% url 'Home' %}" style="background-color: white; color: #003049;">
+            <i class="fas fa-home"></i>
+            <p>Home</p>
+        </a>
+    </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="{% url 'Thesis' %}" style="background-color: white; color: #003049;">
+            <i class="fas fa-book"></i>
+            <p>Thesis</p>
+        </a>
+    </li>
+</ul>

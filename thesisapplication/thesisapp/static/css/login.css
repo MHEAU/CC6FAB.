@@ -1,0 +1,132 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins',sans-serif;
+}
+.container{
+  max-width: 440px;
+  padding: 30px;
+  margin: 50px auto;
+  
+}
+.con-head{
+  width: 100%;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.1);
+}
+.logo{
+  text-align: center;
+  justify-content: center;
+  margin-top: -15px;
+}
+img{
+  border: 6px solid #1666a0;
+  border-radius: 50%;
+  box-shadow: 0px 4px 5px 1px rgba(0, 0, 0, 0.162);
+}
+.con-head .header{
+  height: 70px;
+  background: #1666a0;
+  border-radius: 5px 5px 0 0;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.con-head form{
+  padding: 30px 25px 25px 25px;
+}
+.con-head form .box{
+  height: 45px;
+  margin-bottom: 15px;
+  position: relative;
+}
+.con-head form .box input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  padding-left: 60px;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+form .box input:focus{
+  border-color: #45a7e9;
+  box-shadow: inset 0px 0px 2px 2px rgba(56, 134, 213, 0.42);
+}
+form .box input::placeholder{
+  color: #999;
+}
+.con-head form .box i{
+  position: absolute;
+  width: 47px;
+  height: 100%;
+  color: #fff;
+  font-size: 18px;
+  background: #1666a0;
+  border: 1px solid #2cc3ffba;
+  border-radius: 5px 0 0 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.con-head form {
+  margin: -8px 0 20px 0;
+}
+.con-head form a{
+  color: #6691f4;
+  font-size: 17px;
+  text-decoration: none;
+}
+.con-head form a:hover{
+  text-decoration: underline;
+}
+.con-head form .button input{
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  padding-left: 0px;
+  background: #1666a0;
+  border: 1px solid #1666a0;
+  cursor: pointer;
+}
+form .button input:hover{
+  background: #2984d4;
+}
+.con-head form .signup{
+  text-align: center;
+  margin-top: 20px;
+  font-size: 17px;
+}
+.con-head form .signup a{
+  color:#1666a0;
+  text-decoration: none;
+}
+form .signup a:hover{
+  text-decoration: none;
+}
+.error-mess {
+  display: block;
+  background: rgba(229, 14, 57, 0.744);
+  color: #fff;
+  border-radius: 5px;
+  font-size: 20px;
+  padding: 5px;
+  width: 100%;
+  margin-bottom: 5px;
+  text-align: center;
+  animation: shake 0.5s ease-in-out;
+}
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
